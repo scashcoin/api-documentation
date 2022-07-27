@@ -1,0 +1,64 @@
+'''createAddress()''' method creates an additional address in your wallet. 
+
+
+Input: 
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Mandatory
+! Description
+! Format
+! Example
+|-
+| align="center" | secretSpendKey
+| align="center" | No
+| Private spend key. If secretSpendKey was specified, RPC Wallet creates spend address
+| align="center" | string
+| align="center" | 
+|-
+| align="center" | publicSpendKey
+| align="center" | No
+| Public spend key. If publicSpendKey was specified, RPC Wallet creates view address
+| align="center" | string
+| align="center" | 
+|}
+
+'''Note:''' If none of the above mentioned parameters were specified, RPC Wallet creates spend address with generated spend key. 
+
+'''Note:''' both above mentioned parameters can't be present in a single request
+
+
+Output: 
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Description
+! Format
+! Example
+|-
+| address
+| Created address
+| string
+| 2A8CkYbbEqSSeGPZPmfVvyUMR3PB1RxQ4XTGE2x7cFsUhxe4hwPzJJBd4TQ38Mc3R7hqRXuU13ABxUqLbtcoyvETNt7MqSw
+|}
+
+
+Input value example:
+
+ {  
+   'params':{  
+   },
+   'jsonrpc':'2.0',
+   'id':'test',
+   'method':'createAddress'
+ }
+
+Output value example:
+
+ {  
+   'jsonrpc':'2.0',
+   'id':'test',
+   'result':{  
+      'address':'21H8EaE5gVG93iFdcuYPcuefGiLpZrJGbbi19Dg41GWJDoghsv2JpCj7oUzixyP5edBPTKwAWHEpEiLpnGgxPjVxHHeovpL'
+   }
+ }
