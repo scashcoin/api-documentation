@@ -1,0 +1,131 @@
+'''sendTransaction()''' method allows you to send transaction to one or several addresses. Also, it allows you to use a payment_id for a transaction to a single address. 
+
+Input:
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Mandatory
+! Description
+! Format
+! Example
+|-
+| align="center" | addresses
+| align="center" | No 
+| Array of strings, where each string is an address to take the funds from
+| align="center" | array
+| align="center" | See below 
+|-
+| align="center" | transfers
+| align="center" | Yes
+| Array that contains: 
+* address - string
+* amount - int64
+| align="center" | array
+| "amount": 10000000000, 
+"address": "28aYVwSsGMxCWJGCNe26GYPWVR2xLdGnSaHiv5WF8
+MSa4CGuWfnj8eY2CrSUqPRjaqbYVApwxPjwtbPpA3XKjCZSUamsrZv"
+|-
+| align="center" | fee
+| align="center" | Yes
+| Transaction fee. Minimal fee in Bytecoin network is .01 BCN. This parameter should be specified in minimal available BCN units. For example, if your fee is .01 BCN, you should pass it as 1000000
+| align="center" | uint64
+| align="center" | 1000000
+|- 
+| align="center" | unlockTime
+| align="center" | No
+| Height of the block until which transaction is going to be locked for spending. 
+| align="center" | uint64
+| align="center" | 0
+|- 
+| align="center" | anonymity
+| align="center" | Yes
+| Privacy level (a discrete number from 1 to infinity). Level 6 and higher is recommended.
+| align="center" | uint64
+| align="center" | 6
+|- 
+| align="center" | extra
+| align="center" | No 
+| String of variable length. Can contain A-Z, 0-9 characters. 
+| align="center" | string
+| align="center" | 
+|- 
+| align="center" | paymentId
+| align="center" | No
+| align="center" | payment_id
+| align="center" | string
+| align="center" | somePaymentId 
+|- 
+| align="center" | changeAddress
+| align="center" | No
+| align="center" | Valid and existing in this container address. 
+| align="center" | string
+| align="center" | 27eJo2S9eVo5N2G9zyjkqNBZPR6d2qvVD122vQMGAhcrjZjLu8nsMqk3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFX4qWNh
+|}
+
+Note: if container contains only 1 address, '''changeAddress''' field can be left empty and the change is going to be sent to this address
+
+Note: if '''addresses''' field contains only 1 address, '''changeAddress''' can be left empty and the change is going to be sent to this address
+
+Note: in the rest of the cases, '''changeAddress''' field is mandatory and must contain an address. 
+
+
+
+Output: 
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Description
+! Format
+! Example
+|-
+| transactionHash
+| Hash of the sent transaction. 
+| string
+| 93faedc8b8a80a084a02dfeffd163934746c2163f23a1b6022b32423ec9ae08f
+|}
+
+
+Input Example:
+
+ {  
+   'params':{  
+      'anonymity':0,
+      'fee':1000000,
+      'unlockTime':0,
+      'paymentId':'somePaymentId',
+      'addresses':[  
+         '27eJo2S9eVo5N2G9zyjkqNBZPR6d2qvVD122vQMGAhcrjZjLu8nsMqk3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFX4qWNh',
+         '24JtjYsLdSJKNNDCPGdMco5NbMBLqVWZ5ZiW5vzjXQUrLpMs1MRnfTQ3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFXHARwn',
+         '21fYPCpaM3ochSSyLnhDAhgw1yV5WPb5c1BfyX5eidbMGyEPgnbSgJW3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFX8VQMv'
+      ],
+      'transfers':[  
+         {  
+            'amount':123456,
+            'address':'27eJo2S9eVo5N2G9zyjkqNBZPR6d2qvVD122vQMGAhcrjZjLu8nsMqk3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFX4qWNh'
+         },
+         {  
+            'amount':234567,
+            'address':'278g3wNw5W48DeGbjwxkW3XauBip64uYKS9eFveUHBfdRAG3dYHPZvqXy5BWbfuKEtWZ86PJZdRacAgr1x3gtP5nLyGcVt8'
+         },
+         {  
+            'amount':345678,
+            'address':'2AtjUXGmhP6CmbRxCtBESR4MjSGiWCQUTPCdsDpw72Co2pwzZT7rjnaBNRCSFCEygjNo5oe8mHyXU4Eip8szu4ZnAFyPW1a'
+         }
+      ],
+      'changeAddress':'27eJo2S9eVo5N2G9zyjkqNBZPR6d2qvVD122vQMGAhcrjZjLu8nsMqk3c4KQ9iMJ4AV4fpBMccmjfJ4cu7uprKLNFX4qWNh'
+   },
+   'jsonrpc':'2.0',
+   'id':'test',
+   'method':'sendTransaction'
+ }
+
+
+Return value example:
+
+ {  
+   'jsonrpc':'2.0',
+   'id':'test',
+   'result':{  
+      'transactionHash':'93faedc8b8a80a084a02dfeffd163934746c2163f23a1b6022b32423ec9ae08f'
+   }
+ }
