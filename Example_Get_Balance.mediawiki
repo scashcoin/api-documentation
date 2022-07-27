@@ -1,0 +1,63 @@
+'''getBalance()''' method returns a balance for a specified address.
+
+'''Please note:''' If address is not specified, returns a cumulative balance of all RPC Wallet's addresses.
+
+
+Input: 
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Mandatory
+! Description
+! Format
+! Example
+|-
+| align="center" | address
+| align="center" | No
+| Valid and existing address in this particular wallet
+| align="center" | string
+| align="center" | 2785gGLpyMJhw4JFVVd4vMDeRMmvTNda9MMgQNBd8se2a1mNRcKYubnaCk5zubLSefZAAmjDk9Fyejb2hVDRZQ23MB2BgUW
+|}
+
+
+Output: 
+
+{| cellspacing="0" cellpadding="5" border="1"
+! Argument
+! Description
+! Format
+! Example
+|-
+| align="center" | availableBalance
+| Available balance of the specified address
+| align="center" | uint64
+| align="center" | 123123 
+|-
+| align="center" | lockedAmount
+| Locked amount of the specified address
+| align="center" | uint64
+| align="center" | 123123
+|}
+
+
+Input example:
+
+ {  
+   'params':{  
+      'address':'2785gGLpyMJhw4JFVVd4vMDeRMmvTNda9MMgQNBd8se2a1mNRcKYubnaCk5zubLSefZAAmjDk9Fyejb2hVDRZQ23MB2BgUW'
+   },
+   'jsonrpc':'2.0',
+   'id':'test',
+   'method':'getBalance'
+ }
+
+Output example:
+
+ {  
+   'jsonrpc':'2.0',
+   'id':'test',
+   'result':{  
+      'lockedAmount':210,
+      'availableBalance':110
+   }
+ }
