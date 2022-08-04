@@ -127,7 +127,7 @@ Where:
 
 ## EXAMPLE: CREATE ADDRESS METHOD
 
-'''createAddress()''' method creates an additional address in your wallet. 
+'''createAddress''' method creates an additional address in your wallet. 
 
 Input value example:
 
