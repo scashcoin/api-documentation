@@ -104,7 +104,7 @@ Where:
 |-
   <br />
   
- ***eleteDelayedTransaction***
+ ***deleteDelayedTransaction***
 | deleteDelayedTransaction() method deletes a specified delayed transaction. 
 |-
   <br />
