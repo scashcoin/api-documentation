@@ -43,6 +43,7 @@ Where:
 |-
   
   <br />
+  
  ***getAddresses***
 | getAddresses() method returns an array of your RPC Wallet's addresses.
 |-
