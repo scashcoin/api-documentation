@@ -3,7 +3,7 @@
 # Secure Cash API Documentation 
 
 <br />
-if your service has already listed Bytecoin API, you will not need integration Secure Cash from scratch.
+If your service, such as exchange, web wallet, others... has already listed CryptoNight coins such as CCX, BBS, INF, BCN, XUNI... and many other CryptoNight Variants coins, you do not need to integrate SCSX API from scratch, in addition Furthermore, CryptoNight coins have the same API base, some just change some API calls or add more calls, moreover, it is very easy to integrate SCSX.
 
 &nbsp;
 
